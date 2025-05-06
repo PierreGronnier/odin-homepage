@@ -42,7 +42,7 @@ body::before {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 60%;
+  height: 29%;
   background-color: var(--main-color);
   transform: skewY(-10deg);
   transform-origin: top left;
@@ -136,8 +136,138 @@ header {
   opacity: 0.8;
 }
 
+.work-section {
+  padding: 2rem 15%;
+}
+
+.work-section h1 {
+  text-align: start;
+  font-size: 3rem;
+  font-family: PlayfairDisplayBold;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.grid-container article {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 1rem var(--shadow);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.grid-container article:hover {
+  transform: scale(1.05);
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.grid-container article:hover::after,
+.grid-container article:hover::before {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 70%,
+    var(--main-color)
+  );
+  inset: -5px;
+  z-index: -1;
+  animation: 3s spin linear infinite;
+}
+
+.grid-container article:hover::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.grid-container article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.grid-container .text {
+  padding: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 0;
+}
+
+.grid-container article:hover .text {
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-header .title {
+  margin: 0;
+  font-family: PlayfairDisplayBold;
+  font-size: 1.6rem;
+  color: var(--black);
+}
+
+.project-header .project-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-header .project-icons a {
+  color: var(--black);
+  transition: all 0.3s ease;
+}
+
+.project-header .project-icons a:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.project-header .project-icons i {
+  font-size: 1.7rem;
+}
+
+.grid-container .text p {
+  font-family: Roboto;
+  font-size: 1.2rem;
+  color: #444;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+  body::before {
+    height: 23%;
+  }
+
   .profile-container {
     flex-direction: column;
     gap: 2rem;
@@ -158,5 +288,14 @@ header {
 
   .profile-icons {
     justify-content: center;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .work-section h1 {
+    grid-column: span 1;
+    text-align: center;
   }
 }
