@@ -6,6 +6,10 @@ This project is a responsive homepage created as part of the [Odin Project's](ht
 
 The goal of this project was to build a responsive homepage that adapts to different screen sizes, including desktop, tablet, and mobile. The design and layout were inspired by the requirements provided in the Odin Project's lesson on advanced HTML and CSS.
 
+## Preview
+
+You can see this project on github pages [here](https://pierregronnier.github.io/odin-homepage/)
+
 ### Features
 
 - Responsive design for various screen sizes
