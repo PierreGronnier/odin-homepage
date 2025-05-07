@@ -20,6 +20,7 @@
   --orange: #fd614a;
   --black: #000;
   --white: #fff;
+  --footer: #003e5e;
 }
 
 * {
@@ -44,7 +45,7 @@ body::before {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 29%;
+  height: 22%;
   background-color: transparent;
   background-image: radial-gradient(
       circle at 20% 30%,
@@ -288,12 +289,82 @@ header {
   color: #444;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  body::before {
-    height: 23%;
-  }
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 15%;
+  background-color: var(--footer);
+  margin-top: 5rem;
+  gap: 4rem;
+}
 
+.footer-info {
+  flex: 1;
+}
+
+.footer-info h2 {
+  font-family: PlayfairDisplayBold;
+  font-size: 2.8rem;
+  color: var(--main-color);
+  margin-bottom: 2rem;
+}
+
+.footer-info .contact-message {
+  margin-bottom: 2rem;
+}
+
+.footer-info .address {
+  margin-bottom: 3rem;
+}
+
+.footer-info .address p {
+  margin-bottom: 0.2rem;
+}
+
+.footer-info p {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.footer-info .social-icons {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.footer-info a {
+  color: var(--main-color);
+  font-size: 3rem;
+}
+
+.footer-info a:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.footer-info i[class*="fa-phone"],
+.footer-info i[class*="fa-envelope"] {
+  margin-right: 1rem;
+  color: var(--main-color);
+  font-size: 2rem;
+}
+
+footer img {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 1rem var(--shadow);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  body::before {
+    transform: skewY(-30deg);
+  }
   .profile-container {
     flex-direction: column;
     gap: 2rem;
@@ -321,7 +392,40 @@ header {
   }
 
   .work-section h1 {
-    grid-column: span 1;
     text-align: center;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    padding: 2rem 2rem 0;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .footer-info {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .footer-info .social-icons {
+    justify-content: center;
+  }
+
+  footer img {
+    width: 100vw;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
